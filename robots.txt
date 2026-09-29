@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /assets/fonts/
+
+# Screenshots, store cards and the social banner stay crawlable on purpose:
+# they are the page's image search surface and the og:image source.
+# Only the font binaries are skipped, to save crawl budget.
+
+Sitemap: https://kova.app/sitemap.xml

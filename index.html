@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KOVA — Free Offline Gym Log. No Internet Permission.</title>
+<meta name="description" content="Free offline workout tracker and strength log for Android. Tap a muscle on a body map, log sets, and see real progress. No ads, no account, no internet.">
+<meta name="author" content="ravvdevv">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="theme-color" content="#000000">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="https://kova.app/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="KOVA">
+<meta property="og:locale" content="en">
+<meta property="og:url" content="https://kova.app/">
+<meta property="og:title" content="KOVA — Free Offline Gym Log. No Internet Permission.">
+<meta property="og:description" content="Tap the muscle. Log the set. Own the data. A dark, offline strength log for Android — free forever, with no account, no ads and no INTERNET permission.">
+<meta property="og:image" content="https://kova.app/assets/banner.webp">
+<meta property="og:image:type" content="image/webp">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1152">
+<meta property="og:image:alt" content="KOVA store banner: the app icon and wordmark with the lines Free Forever, Fully offline, Your Data is yours, beside two phones showing the home screen and the body map.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="KOVA — Free Offline Gym Log. No Internet Permission.">
+<meta name="twitter:description" content="Tap the muscle. Log the set. Own the data. Free forever, no account, no ads, no INTERNET permission.">
+<meta name="twitter:image" content="https://kova.app/assets/banner.webp">
+<meta name="twitter:image:alt" content="KOVA store banner with two app screens, the home screen and the body map.">
+
+<link rel="icon" href="assets/icon.png" sizes="any">
+<link rel="apple-touch-icon" href="assets/icon.png">
+<link rel="preload" href="assets/fonts/Nunito-ExtraBold.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="assets/fonts/Nunito-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="styles.css">
+<script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js');</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://kova.app/#app",
+      "name": "KOVA",
+      "applicationCategory": "HealthApplication",
+      "applicationSubCategory": "Workout tracker and strength log",
+      "operatingSystem": "Android",
+      "softwareRequirements": "Android 7.0 (Nougat) or later",
+      "description": "KOVA is a free, offline strength log for Android. Pick your focus on an interactive body map, log reps and weight set by set, and read progress built from your own sets. No account, no ads, no subscription and no INTERNET permission.",
+      "softwareVersion": "1.3.0",
+      "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+      "downloadUrl": "https://f-droid.org/packages/com.kova.app/",
+      "image": "https://kova.app/assets/banner.webp",
+      "screenshot": [
+        "https://kova.app/assets/screens/01-home.webp",
+        "https://kova.app/assets/screens/03-train.webp",
+        "https://kova.app/assets/screens/04-session.webp",
+        "https://kova.app/assets/screens/02-progress.webp",
+        "https://kova.app/assets/screens/06-library.webp",
+        "https://kova.app/assets/screens/08-settings.webp"
+      ],
+      "featureList": [
+        "Interactive body map, front and back",
+        "Reps, weight, RPE or RIR per set",
+        "Rest timer with a custom alarm sound, firing with the screen off",
+        "Set types: warm-up, working, drop set, to failure",
+        "Plates per side, worked out from the kit you own",
+        "Supersets that skip the rest between two exercises",
+        "A live session that survives a reboot",
+        "Routines grouped, reordered and scheduled per weekday",
+        "Places (home, gym or park) offering only what you can do there",
+        "Volume, streak, weekly goal ring and personal records",
+        "Activity heatmap with per-day detail",
+        "Strength curves with estimated 1RM per exercise",
+        "Muscle split across the last 30 days",
+        "Progress photos on a timeline, or the same timeline drawn as a muscle map",
+        "Bodyweight and ten body measurements, each with its own curve",
+        "Share card: streak, muscles worked, or before and after",
+        "500+ exercises with animation and step-by-step instructions",
+        "Search and filters by muscle, equipment and level",
+        "Your own photo, GIF or video as an exercise's art",
+        "Training journal on a calendar with photos and video",
+        "Six calculators: 1RM, plates, BMI, calories and macros, body fat, warm-up",
+        "Five home-screen widgets",
+        "Import from Hevy, Strong, Lyfta, FitNotes, openGym or any CSV",
+        "Export to CSV or a full ZIP backup, and delete everything in one tap"
+      ],
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "author": { "@id": "https://kova.app/#author" },
+      "isBasedOn": { "@id": "https://kova.app/#source" }
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "@id": "https://kova.app/#source",
+      "name": "KOVA",
+      "codeRepository": "https://github.com/ravvdevv/kova-app",
+      "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+      "author": { "@id": "https://kova.app/#author" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://kova.app/#author",
+      "name": "ravvdevv",
+      "url": "https://github.com/ravvdevv",
+      "sameAs": [
+        "https://github.com/ravvdevv",
+        "https://ko-fi.com/ravvdevv"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://kova.app/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is it really free, or is the catch somewhere?",
+          "acceptedAnswer": { "@type": "Answer", "text": "There is no catch and no paid tier. No subscription, no ads, no analytics, no account. KOVA is released under GPL-3.0, so the source that ships is the source you can read. It stays free either way — and if it earns a place in your rotation and you feel like chipping in, the project's Ko-fi is at ko-fi.com/ravvdevv." }
+        },
+        {
+          "@type": "Question",
+          "name": "How can an app work with no internet permission?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Because it never needed one. KOVA has no network code at all, so Android's INTERNET permission is never declared. Your sets, photos, notes and media live in the app's own storage on the phone, which is also what makes the app work in a basement gym with no signal." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I bring my history from another app?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. KOVA imports workouts and bodyweight from Hevy, Strong, Lyfta, FitNotes and openGym, and reads any CSV you can get out of the app you are leaving. Still choosing? See nine trackers compared at kova.app/hevy-alternative, including where KOVA loses. You can also re-import a KOVA backup at any time." }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens to my data if I uninstall?",
+          "acceptedAnswer": { "@type": "Answer", "text": "It goes with the app, which is why the ZIP backup exists: it includes your data and the media you uploaded, and it imports back cleanly. Export it before you remove KOVA." }
+        },
+        {
+          "@type": "Question",
+          "name": "Is there an iOS version?",
+          "acceptedAnswer": { "@type": "Answer", "text": "iOS 15 and later is in development. The Android build is the current one, and Wear OS and desktop are on the way." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I really delete everything?",
+          "acceptedAnswer": { "@type": "Answer", "text": "One tap, in settings, no confirmation maze and no are-you-sure marathon. That button is the honest version of a privacy policy." }
+        },
+        {
+          "@type": "Question",
+          "name": "Who draws the exercises?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The illustrations come from Workout Guide by Bryl Lim, based on Everkinetic, licensed CC BY-SA 4.0. Any exercise's art can be swapped for your own photo, GIF or video." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I request a feature?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Open an issue on the repository at github.com/ravvdevv/kova-app/issues and describe what you are trying to log. Requests get read, and the ones that show up again and again from other lifters get built." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+<header class="nav" id="nav">
+  <div class="shell nav__inner">
+    <a class="brand" href="#top" aria-label="KOVA, home">
+      <span class="brand__mark"><img src="assets/logo.webp" width="512" height="512" alt="" decoding="async"></span>
+      <span class="brand__word">KOVA</span>
+    </a>
+
+    <nav class="nav__links" aria-label="Sections">
+      <a href="#train">Train</a>
+      <a href="#progress">Progress</a>
+      <a href="#library">Exercises</a>
+      <a href="#privacy">Privacy</a>
+    </nav>
+
+    <div class="nav__actions">
+      <a class="btn btn--solid btn--sm" href="https://github.com/ravvdevv/kova-app/releases" target="_blank" rel="noopener noreferrer">Get KOVA</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<span id="top"></span>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="grid-bg" aria-hidden="true"></div>
+  <div class="shell hero__inner">
+
+    <div class="hero__copy">
+      <h1 class="hero__title reveal" data-d="1">
+        No account.<br>
+        No cloud.<br>
+        <span class="last">Just lifts.</span>
+      </h1>
+
+      <p class="hero__sub reveal" data-d="2">
+        A strength log for the gym floor. Tap the muscle, log the set, and read progress
+        from your own sets.
+      </p>
+
+      <p class="hero__tag reveal" data-d="2">Free forever &middot; 500+ exercises &middot; 16 languages</p>
+
+      <div class="hero__actions reveal" data-d="3">
+        <a class="btn btn--solid btn--lg" href="https://github.com/ravvdevv/kova-app/releases" target="_blank" rel="noopener noreferrer">
+          Get KOVA
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg>
+        </a>
+        <a class="btn btn--ghost btn--lg" href="#privacy">Why it&rsquo;s offline</a>
+      </div>
+
+      <p class="hero__meta reveal" data-d="4">
+        Android 7.0+ &nbsp;&middot;&nbsp; iOS 15+ in development &nbsp;&middot;&nbsp; GPL-3.0 &nbsp;&middot;&nbsp; <code>com.kova.app</code>
+      </p>
+    </div>
+
+    <div class="hero__stage reveal" data-d="3">
+      <div class="beam" aria-hidden="true"></div>
+
+      <figure class="hero__banner">
+        <img src="assets/banner.webp" width="2048" height="1152" decoding="async" fetchpriority="high"
+             alt="KOVA store banner: the app icon and wordmark with the lines Free Forever, Fully offline, Your Data is yours, beside two phones showing the home screen and the body map.">
+      </figure>
+
+      <div class="hero__foot">
+        <div class="device">
+          <div class="device__frame">
+            <span class="device__notch" aria-hidden="true"></span>
+            <img src="assets/screens/12-profile.webp" width="400" height="860"
+                 alt="KOVA profile: levels, the twenty medals earned from real sessions, and the share card." loading="lazy" decoding="async">
+          </div>
+        </div>
+
+        <dl class="hero__stats">
+          <div><dt>Level</dt><dd>12</dd></div>
+          <div><dt>Medals</dt><dd>20</dd></div>
+          <div><dt>Streak</dt><dd>30 days</dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+
+  <ul class="stats shell" aria-label="At a glance">
+    <li class="reveal"><b data-count="500" data-suffix="+">500+</b><span>exercises with animation</span></li>
+    <li class="reveal" data-d="1"><b data-count="16">16</b><span>languages, dark &amp; light</span></li>
+    <li class="reveal" data-d="2"><b data-count="20">20</b><span>medals and levels</span></li>
+    <li class="reveal" data-d="3"><b>0</b><span>network calls, ever</span></li>
+  </ul>
+</section>
+
+<!-- ══ MARQUEE ══ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    <span>Chest</span><i>&middot;</i><span>Back</span><i>&middot;</i><span>Quads</span><i>&middot;</i><span>Shoulders</span><i>&middot;</i>
+    <span>Biceps</span><i>&middot;</i><span>Triceps</span><i>&middot;</i><span>Hamstrings</span><i>&middot;</i><span>Calves</span><i>&middot;</i>
+    <span>Core</span><i>&middot;</i><span>Glutes</span><i>&middot;</i><span>Lats</span><i>&middot;</i><span>Forearms</span><i>&middot;</i>
+    <span>Chest</span><i>&middot;</i><span>Back</span><i>&middot;</i><span>Quads</span><i>&middot;</i><span>Shoulders</span><i>&middot;</i>
+    <span>Biceps</span><i>&middot;</i><span>Triceps</span><i>&middot;</i><span>Hamstrings</span><i>&middot;</i><span>Calves</span><i>&middot;</i>
+    <span>Core</span><i>&middot;</i><span>Glutes</span><i>&middot;</i><span>Lats</span><i>&middot;</i><span>Forearms</span><i>&middot;</i>
+  </div>
+</div>
+
+<!-- ══ 01 TRAIN ══ -->
+<section class="feature" id="train">
+  <div class="shell feature__inner">
+    <div class="feature__copy">
+      <p class="eyebrow reveal"><span>01</span> Train</p>
+      <h2 class="reveal" data-d="1">Pick the muscle.<br>Get the session.</h2>
+      <p class="feature__lead reveal" data-d="2">
+        Most logs make you browse a list. KOVA starts with a body &mdash; tap what you want to
+        work and the session is built around it, then stays yours to edit set by set.
+      </p>
+      <ul class="ticks reveal" data-d="3">
+        <li>Interactive body map, front and back</li>
+        <li>Reps, weight, RPE or RIR per set</li>
+        <li>Rest timer with your own alarm sound, fired with the screen off</li>
+        <li>Set types: warm-up, working, drop set, to failure</li>
+        <li>Plates per side, worked out from the kit you actually own</li>
+        <li>Supersets that skip the rest between two exercises</li>
+        <li>A live session that survives a reboot</li>
+        <li>Routines you can group, reorder and schedule per weekday</li>
+        <li>Places &mdash; home, gym or park &mdash; offering only what you can do there</li>
+      </ul>
+    </div>
+    <figure class="feature__shot reveal" data-d="2">
+      <div class="phone">
+        <img src="assets/screens/03-train.webp" width="400" height="860" loading="lazy" decoding="async"
+             alt="The focus picker: a front and back body map with the selected muscles lit, and the chosen muscles listed as chips.">
+      </div>
+      <figcaption>Tap the muscle. The session writes itself.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ══ 02 PROGRESS ══ -->
+<section class="feature feature--flip" id="progress">
+  <div class="shell feature__inner">
+    <div class="feature__copy">
+      <p class="eyebrow reveal"><span>02</span> Progress</p>
+      <h2 class="reveal" data-d="1">Numbers that came<br>from your own sets.</h2>
+      <p class="feature__lead reveal" data-d="2">
+        Nothing here is estimated from a profile or synced from a cloud. Every number is
+        arithmetic on the sets you actually logged, so it can be audited by looking at them.
+      </p>
+      <ul class="ticks reveal" data-d="3">
+        <li>Volume, streak, weekly goal ring and personal records</li>
+        <li>Activity heatmap with per-day detail, GitHub-style</li>
+        <li>Strength curves with estimated 1RM per exercise</li>
+        <li>Muscle split across the last 30 days</li>
+        <li>Progress photos on a timeline, front, side and back</li>
+        <li>Prefer not to photograph yourself? The same timeline drawn as a muscle map</li>
+        <li>Bodyweight and ten body measurements, each with its own curve</li>
+        <li>Share card: streak, muscles worked, or your before and after</li>
+      </ul>
+    </div>
+    <figure class="feature__shot reveal" data-d="2">
+      <div class="panel">
+        <div class="panel__head">
+          <span class="panel__title">Consistency</span>
+          <span class="panel__badge"><span class="dot"></span><span id="streakOut">30</span>-day streak</span>
+        </div>
+        <div class="heat" id="heat" role="img" aria-label="Activity heatmap: 30-day streak, two of six sessions this week."></div>
+        <div class="panel__foot">
+          <span>Sessions <b data-count="137">137</b></span>
+          <span>Sets <b data-count="2591">2591</b></span>
+          <span>Time <b data-count="174">174</b> h</span>
+        </div>
+      </div>
+      <div class="phone phone--sm">
+        <img src="assets/screens/02-progress.webp" width="352" height="760" loading="lazy" decoding="async"
+             alt="Progress screen: 30-day volume card, bodyweight sparkline, consistency heatmap and lifetime totals.">
+      </div>
+      <figcaption>Thirty days of you, drawn from thirty days of sets.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ══ 03 EXERCISES & TOOLS ══ -->
+<section class="feature" id="library">
+  <div class="shell feature__inner">
+    <div class="feature__copy">
+      <p class="eyebrow reveal"><span>03</span> Exercises &amp; tools</p>
+      <h2 class="reveal" data-d="1">500+ exercises.<br>Your own art on any of them.</h2>
+      <p class="feature__lead reveal" data-d="2">
+        A real library with animation and step-by-step instructions, plus everything around it:
+        a journal, calculators and home-screen widgets that read the same database.
+      </p>
+      <ul class="ticks reveal" data-d="3">
+        <li>500+ exercises with animation and step-by-step instructions</li>
+        <li>Search, and filters by muscle, equipment and level</li>
+        <li>Favourites, plus your own exercises</li>
+        <li>Swap any exercise&rsquo;s art for your own photo, GIF or video</li>
+        <li>Training journal on a calendar &mdash; note, plan, win or niggle &mdash; with photos and video</li>
+        <li>Six calculators: 1RM, plates, BMI, calories &amp; macros, body fat, warm-up</li>
+        <li>Five home-screen widgets: today, this week, activity, stats, muscle map</li>
+      </ul>
+    </div>
+    <figure class="feature__shot reveal" data-d="2">
+      <div class="phone">
+        <img src="assets/screens/06-library.webp" width="400" height="860" loading="lazy" decoding="async"
+             alt="Exercise library: a searchable list with filters for muscle, equipment and level.">
+      </div>
+      <figcaption>Search it, filter it, or write your own.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ══ 04 YOUR DATA ══ -->
+<section class="feature feature--flip" id="data">
+  <div class="shell feature__inner">
+    <div class="feature__copy">
+      <p class="eyebrow reveal"><span>04</span> Your data</p>
+      <h2 class="reveal" data-d="1">Yours to take.<br>Yours to delete.</h2>
+      <p class="feature__lead reveal" data-d="2">
+        An app that keeps your data on your phone owes you a clean way in and a clean way out.
+        KOVA has both, and neither needs an account.
+      </p>
+      <ul class="ticks reveal" data-d="3">
+        <li>Export to CSV, or a full ZIP backup with the media you uploaded</li>
+        <li>Import that backup back in, unchanged</li>
+        <li>Bring your history from Hevy, Strong, Lyfta, FitNotes, openGym or any CSV</li>
+        <li>Routine with AI: export your exercise list, paste it into any AI tool, import the routine back</li>
+        <li>Photos, videos and notes stay in the app&rsquo;s own storage</li>
+        <li>Delete every byte in one tap</li>
+      </ul>
+      <div class="chips reveal" data-d="4" aria-label="Supported imports">
+        <span>Hevy</span><span>Strong</span><span>Lyfta</span><span>FitNotes</span><span>openGym</span><span>CSV</span>
+      </div>
+    </div>
+    <figure class="feature__shot reveal" data-d="2">
+      <div class="phone">
+        <img src="assets/screens/05-history.webp" width="400" height="860" loading="lazy" decoding="async"
+             alt="History: logged sessions listed by date with their volume and duration.">
+      </div>
+      <figcaption>One tap to a ZIP. One tap to gone.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ══ PRIVACY ══ -->
+<section class="privacy" id="privacy">
+  <div class="grid-bg grid-bg--soft" aria-hidden="true"></div>
+  <div class="shell privacy__inner">
+    <div class="privacy__copy">
+      <p class="eyebrow reveal"><span>05</span> Privacy</p>
+      <h2 class="reveal" data-d="1">It doesn&rsquo;t have the<br>internet permission.</h2>
+      <p class="feature__lead reveal" data-d="2">
+        KOVA ships with no analytics, no advertising SDK and no network code. Android&rsquo;s
+        <code>INTERNET</code> permission is never requested, so there is no mechanism, not even
+        a disabled one, for your training to leave the phone. The only outbound action in the
+        whole app is a link you tap yourself.
+      </p>
+
+      <div class="manifest reveal" data-d="3">
+        <div class="manifest__bar">
+          <span class="manifest__dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="manifest__file">AndroidManifest.xml</span>
+        </div>
+<pre class="manifest__code"><code><span class="c-k">&#60;uses-permission</span> android:name=<span class="c-s">"android.permission.POST_NOTIFICATIONS"</span> <span class="c-k">/&#62;</span>
+<span class="c-k">&#60;uses-permission</span> android:name=<span class="c-s">"android.permission.SCHEDULE_EXACT_ALARM"</span> <span class="c-k">/&#62;</span>
+<span class="c-k">&#60;uses-permission</span> android:name=<span class="c-s">"android.permission.VIBRATE"</span> <span class="c-k">/&#62;</span>
+<span class="c-k">&#60;uses-permission</span> android:name=<span class="c-s">"android.permission.WAKE_LOCK"</span> <span class="c-k">/&#62;</span>
+
+<span class="c-c">&lt;!-- android.permission.INTERNET: never requested --&gt;</span></code></pre>
+      </div>
+    </div>
+
+    <div class="privacy__list reveal" data-d="3">
+      <table class="perms">
+        <caption class="sr-only">Permissions KOVA requests and why</caption>
+        <thead>
+          <tr><th scope="col">Permission</th><th scope="col">Why it is there</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row"><code>POST_NOTIFICATIONS</code></th><td>The rest timer counts down in the shade</td></tr>
+          <tr><th scope="row"><code>SCHEDULE_EXACT_ALARM</code></th><td>So the rest timer ends on time, not approximately</td></tr>
+          <tr><th scope="row"><code>VIBRATE</code></th><td>So the alarm buzzes instead of only sounding</td></tr>
+          <tr><th scope="row"><code>WAKE_LOCK</code></th><td>So it still fires with the screen off</td></tr>
+          <tr class="perms__none"><th scope="row"><code>INTERNET</code></th><td><s>Not requested. There is no code that could use it.</s></td></tr>
+        </tbody>
+      </table>
+      <p class="privacy__note">
+        Photos and videos live in the app&rsquo;s own storage. Nothing is uploaded, because there
+        is nowhere to upload it to.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ GALLERY ══ -->
+<section class="gallery" id="screens">
+  <div class="shell gallery__head">
+    <div>
+      <p class="eyebrow reveal"><span>06</span> Every screen</p>
+      <h2 class="reveal" data-d="1">Straight off the phone.</h2>
+    </div>
+    <div class="gallery__nav reveal" data-d="2">
+      <p class="gallery__hint" id="railCount" aria-live="polite">1&ndash;12 of 12</p>
+      <div class="gallery__btns">
+        <button class="railbtn" id="railPrev" type="button" aria-label="Scroll to earlier screens" aria-controls="rail">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+        </button>
+        <button class="railbtn" id="railNext" type="button" aria-label="Scroll to later screens" aria-controls="rail">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  <p class="gallery__note shell reveal" data-d="2">Drag it, scroll it, or focus the row and use the arrow keys.</p>
+  <div class="rail" id="rail" tabindex="0" role="region" aria-label="All KOVA screens, scroll horizontally">
+    <figure class="rail__item">
+      <img src="assets/screens/01-home.webp" width="400" height="860" loading="lazy" decoding="async" alt="Home: today&rsquo;s routine, weekly volume, sets, PRs and activity.">
+      <figcaption>Today</figcaption>
+    </figure>
+    <figure class="rail__item">
+      <img src="assets/screens/03-train.webp" width="400" height="860" loading="lazy" decoding="async" alt="Body map focus picker, front and back.">
+      <figcaption>Body map</figcaption>
+    </figure>
+    <figure class="rail__item">
+      <img src="assets/screens/04-session.webp" width="400" height="860" loading="lazy" decoding="async" alt="Live session: set table, previous performance and rest timer.">
+      <figcaption>Live session</figcaption>
+    </figure>
+    <figure class="rail__item">
+      <img src="assets/screens/02-progress.webp" width="352" height="760" loading="lazy" decoding="async" alt="Progress: volume, bodyweight, consistency heatmap, totals.">
+      <figcaption>Progress</figcaption>
+    </figure>
+    <figure class="rail__item">
+      <img src="assets/screens/05-history.webp" width="400" height="860" loading="lazy" decoding="async" alt="History of logged sessions.">
+      <figcaption>History</figcaption>
+    </figure>
+    <figure class="rail__item">
+      <img src="assets/screens/06-library.webp" width="400" height="860" loading="lazy" decoding="async" alt="Exercise library with filters.">
+      <figcaption>Library</figcaption>
+    </figure>
+    <figure class="rail__item">
+      <img src="assets/screens/07-routines.webp" width="400" height="860" loading="lazy" decoding="async" alt="Routines, reorderable and schedulable per weekday.">
+      <figcaption>Routines</figcaption>
+    </figure>
+    <figure class="rail__item">
+      <img src="assets/screens/09-notes.webp" width="400" height="860" loading="lazy" decoding="async" alt="Training journal on a calendar with notes, photos and video.">
+      <figcaption>Journal</figcaption>
+    </figure>
+    <figure class="rail__item">
+      <img src="assets/screens/10-places.webp" width="400" height="860" loading="lazy" decoding="async" alt="Places: equipment available at home, gym or park.">
+      <figcaption>Places</figcaption>
+    </figure>
+    <figure class="rail__item">
+      <img src="assets/screens/11-body.webp" width="400" height="860" loading="lazy" decoding="async" alt="Progress timeline drawn as a muscle map from logged sets.">
+      <figcaption>Muscle timeline</figcaption>
+    </figure>
+    <figure class="rail__item">
+      <img src="assets/screens/12-profile.webp" width="400" height="860" loading="lazy" decoding="async" alt="Profile with levels, medals and a share card.">
+      <figcaption>Profile</figcaption>
+    </figure>
+    <figure class="rail__item">
+      <img src="assets/screens/08-settings.webp" width="400" height="860" loading="lazy" decoding="async" alt="Settings: units, theme, language, export and delete.">
+      <figcaption>Settings</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ══ STORE LISTING ══ -->
+<section class="listing" id="listing">
+  <div class="shell">
+    <p class="eyebrow reveal"><span>07</span> In the store</p>
+    <h2 class="reveal" data-d="1">The listing, exactly as it ships.</h2>
+    <p class="feature__lead reveal" data-d="2">
+      The same banner and the same six cards that go out with the release. No stock gym
+      photography, no borrowed devices.
+    </p>
+  </div>
+
+  <ul class="listing__row shell reveal" data-d="3">
+    <li>
+      <img src="assets/store/01-hero.webp" width="1152" height="2048" loading="lazy" decoding="async"
+           alt="Store card: Free Forever, Fully offline, Your Data is yours.">
+      <span>Hero</span>
+    </li>
+    <li>
+      <img src="assets/store/02-train.webp" width="1008" height="2160" loading="lazy" decoding="async"
+           alt="Store card: tap the muscle, get the session.">
+      <span>Body map</span>
+    </li>
+    <li>
+      <img src="assets/store/03-rest.webp" width="1088" height="2352" loading="lazy" decoding="async"
+           alt="Store card: tick the set, the rest timer rings itself.">
+      <span>Rest timer</span>
+    </li>
+    <li>
+      <img src="assets/store/04-progress.webp" width="1008" height="2160" loading="lazy" decoding="async"
+           alt="Store card: progress read from your own sets.">
+      <span>Progress</span>
+    </li>
+    <li>
+      <img src="assets/store/05-library.webp" width="1008" height="2160" loading="lazy" decoding="async"
+           alt="Store card: 500+ exercises with animation and instructions.">
+      <span>Library</span>
+    </li>
+    <li>
+      <img src="assets/store/06-privacy.webp" width="1152" height="2048" loading="lazy" decoding="async"
+           alt="Store card: no account, no internet, no smoke.">
+      <span>Privacy</span>
+    </li>
+  </ul>
+</section>
+<!-- ══ FAQ ══ -->
+<section class="faq">
+  <div class="shell faq__inner">
+    <div class="faq__head">
+      <p class="eyebrow reveal"><span>08</span> Questions</p>
+      <h2 class="reveal" data-d="1">The ones people<br>actually ask.</h2>
+    </div>
+
+    <div class="faq__list reveal" data-d="2">
+      <details>
+        <summary>Is it really free, or is the catch somewhere?</summary>
+        <p>There is no catch and no paid tier. No subscription, no ads, no analytics, no account.
+        KOVA is released under GPL-3.0, so the source that ships is the source you can read. It
+        stays free either way &mdash; and if it earns a place in your rotation and you feel like
+        chipping in, the project&rsquo;s
+        <a href="https://ko-fi.com/ravvdevv" target="_blank" rel="noopener noreferrer">Ko-fi is
+        open</a>.</p>
+      </details>
+      <details>
+        <summary>How can an app work with no internet permission?</summary>
+        <p>Because it never needed one. KOVA has no network code at all, so Android&rsquo;s
+        <code>INTERNET</code> permission is never declared. Your sets, photos, notes and media
+        live in the app&rsquo;s own storage on the phone, which is also what makes the app work
+        in a basement gym with no signal.</p>
+      </details>
+      <details>
+        <summary>Can I bring my history from another app?</summary>
+        <p>Yes. KOVA imports workouts and bodyweight from Hevy, Strong, Lyfta, FitNotes and
+        openGym, and reads any CSV you can get out of the app you are leaving. Still choosing?
+        <a href="/hevy-alternative/">Nine trackers compared, including where KOVA loses</a>.
+        You can also re-import a KOVA backup at any time.</p>
+      </details>
+      <details>
+        <summary>What happens to my data if I uninstall?</summary>
+        <p>It goes with the app, which is why the ZIP backup exists &mdash; it includes your data
+        and the media you uploaded, and it imports back cleanly. Export it before you remove KOVA.</p>
+      </details>
+      <details>
+        <summary>Is there an iOS version?</summary>
+        <p>iOS 15+ is in development. The Android build is the current one, and Wear OS and
+        desktop are on the way.</p>
+      </details>
+      <details>
+        <summary>Can I really delete everything?</summary>
+        <p>One tap, in settings, no confirmation maze and no &ldquo;are you sure&rdquo; marathon.
+        That button is the honest version of a privacy policy.</p>
+      </details>
+      <details>
+        <summary>Who draws the exercises?</summary>
+        <p>The illustrations come from
+        <a href="https://github.com/bryllim/workout-guide" target="_blank" rel="noopener noreferrer">Workout Guide</a>
+        by Bryl Lim, based on
+        <a href="https://github.com/everkinetic/data" target="_blank" rel="noopener noreferrer">Everkinetic</a>,
+        licensed CC BY-SA 4.0. Any exercise&rsquo;s art can be swapped for your own photo, GIF or video.</p>
+      </details>
+      <details>
+        <summary>Can I request a feature?</summary>
+        <p>Yes. Open an issue on
+        <a href="https://github.com/ravvdevv/kova-app/issues" target="_blank" rel="noopener noreferrer">the repository</a>
+        and describe what you are trying to log. Requests get read, and the ones that show up
+        again and again from other lifters get built.</p>
+      </details>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="shell foot__inner">
+    <a class="brand" href="#top" aria-label="KOVA, back to top">
+      <span class="brand__mark"><img src="assets/logo.webp" width="512" height="512" alt="" loading="lazy" decoding="async"></span>
+      <span class="brand__word">KOVA</span>
+    </a>
+
+    <nav class="foot__nav" aria-label="Footer">
+      <a href="#train">Train</a>
+      <a href="#progress">Progress</a>
+      <a href="#library">Exercises</a>
+      <a href="#privacy">Privacy</a>
+      <a href="/hevy-alternative/">Leaving Hevy</a>
+      <a href="/strong-alternative/">Leaving Strong</a>
+      <a href="https://github.com/ravvdevv/kova-app/releases" target="_blank" rel="noopener noreferrer">Releases</a>
+      <a href="https://ko-fi.com/ravvdevv" target="_blank" rel="noopener noreferrer">Support</a>
+    </nav>
+  </div>
+
+  <div class="shell foot__legal">
+    <p><code>com.kova.app</code> &middot; GPL-3.0 &middot; exercise art CC BY-SA 4.0, Workout Guide by Bryl Lim &middot; Nunito under the SIL OFL</p>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+</body>
+</html>
