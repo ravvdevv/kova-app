@@ -6,4 +6,4 @@ Disallow: /assets/fonts/
 # they are the page's image search surface and the og:image source.
 # Only the font binaries are skipped, to save crawl budget.
 
-Sitemap: https://kova.app/sitemap.xml
+Sitemap: https://www.kova-app.site/sitemap.xml

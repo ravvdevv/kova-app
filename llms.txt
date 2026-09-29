@@ -9,7 +9,7 @@
 
 - GitHub releases: https://github.com/ravvdevv/kova-app/releases
 - Obtainium: for automatic in-app updates
-- Package: `com.kova.app` · Android 7.0+ (supported) · iOS 15+ (in development) · Wear OS 3+ (in progress) · desktop (planned)
+- Package: `com.kova.app` Â· Android 7.0+ (supported) Â· iOS 15+ (in development) Â· Wear OS 3+ (in progress) Â· desktop (planned)
 
 ## Privacy
 
@@ -19,10 +19,10 @@ leave the phone. The only outbound action in the app is a link the user taps.
 
 Permissions requested, and why:
 
-- `POST_NOTIFICATIONS` — the rest timer counts down in the shade
-- `SCHEDULE_EXACT_ALARM` — the rest timer ends on time, not approximately
-- `VIBRATE` — the alarm buzzes instead of only sounding
-- `WAKE_LOCK` — the rest timer still fires with the screen off
+- `POST_NOTIFICATIONS` â€” the rest timer counts down in the shade
+- `SCHEDULE_EXACT_ALARM` â€” the rest timer ends on time, not approximately
+- `VIBRATE` â€” the alarm buzzes instead of only sounding
+- `WAKE_LOCK` â€” the rest timer still fires with the screen off
 
 Data ownership: export to CSV or a full ZIP backup (media included) and import it back;
 import history from Hevy, Strong, Lyfta, FitNotes, openGym or any CSV; delete everything
@@ -50,7 +50,7 @@ macros, body fat, warm-up) and five home-screen widgets.
 
 - Source: https://github.com/ravvdevv/kova-app
 - Issues: https://github.com/ravvdevv/kova-app/issues
-- Comparison: https://kova.app/hevy-alternative/ and https://kova.app/strong-alternative/ — how
+- Comparison: https://www.kova-app.site/hevy-alternative and https://www.kova-app.site/strong-alternative â€” how
   KOVA compares to Hevy, Strong and seven other trackers, including where KOVA is the wrong
   choice
 - Translations: `lib/l10n` in the repository

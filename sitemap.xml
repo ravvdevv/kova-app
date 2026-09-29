@@ -1,29 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  Only kova.app URLs belong here. Cross-host entries are rejected as an error
-  for the whole file, so the GitHub and F-Droid pages this site links out to
-  are left to the outbound links and the page body instead.
+  Only www.kova-app.site URLs belong here. Cross-host entries are rejected as an
+  error for the whole file, so the GitHub pages this site links out to are left to
+  the outbound links and the page body instead.
+
+  No trailing slashes on page URLs: vercel.json sets cleanUrls true and
+  trailingSlash false, so /hevy-alternative/ 308-redirects to /hevy-alternative.
+  Only the root keeps its slash, which is the one form that does not redirect.
 -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>https://kova.app/</loc>
+    <loc>https://www.kova-app.site/</loc>
     <lastmod>2026-09-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://kova.app/assets/banner.webp</image:loc>
+      <image:loc>https://www.kova-app.site/assets/banner.webp</image:loc>
       <image:title>KOVA — the offline gym log</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://kova.app/hevy-alternative/</loc>
+    <loc>https://www.kova-app.site/hevy-alternative</loc>
     <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://kova.app/strong-alternative/</loc>
+    <loc>https://www.kova-app.site/strong-alternative</loc>
     <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
