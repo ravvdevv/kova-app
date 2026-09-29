@@ -1,0 +1,62 @@
+# KOVA
+
+> KOVA is a free, offline workout tracker and strength log for Android, with iOS in
+> development. Tap the muscle on an interactive body map, log reps and weight set by set,
+> and read progress built from your own sets. No account, no ads, no subscription, and no
+> INTERNET permission.
+
+## Install
+
+- F-Droid: https://f-droid.org/packages/com.kova.app/
+- IzzyOnDroid: https://apt.izzysoft.de/fdroid/index/apk/com.kova.app?repo=main
+- OpenAPK: https://www.openapk.net/kova/com.kova.app/
+- GitHub releases: https://github.com/ravvdevv/kova-app/releases
+- Obtainium: for automatic in-app updates
+- Package: `com.kova.app` · Android 7.0+ (supported) · iOS 15+ (in development) · Wear OS 3+ (in progress) · desktop (planned)
+
+## Privacy
+
+KOVA ships with no analytics, no advertising SDK and no network code. Android's
+`INTERNET` permission is never requested, so there is no mechanism for training data to
+leave the phone. The only outbound action in the app is a link the user taps.
+
+Permissions requested, and why:
+
+- `POST_NOTIFICATIONS` — the rest timer counts down in the shade
+- `SCHEDULE_EXACT_ALARM` — the rest timer ends on time, not approximately
+- `VIBRATE` — the alarm buzzes instead of only sounding
+- `WAKE_LOCK` — the rest timer still fires with the screen off
+
+Data ownership: export to CSV or a full ZIP backup (media included) and import it back;
+import history from Hevy, Strong, Lyfta, FitNotes, openGym or any CSV; delete everything
+in one tap. Photos, videos and notes stay in the app's own storage.
+
+## Features
+
+Training: interactive body map (front and back), session picked for a focus then edited set
+by set, reps/weight/RPE, rest timer with a custom alarm sound, set types (warm-up, working,
+drop set, to failure), supersets, plates per side from your own kit, a live session that
+survives a reboot, routines scheduled per weekday, and "places" that only offer exercises
+matching the equipment available at home, in the gym or in the park.
+
+Progress: volume, streak, weekly goal ring, personal records, GitHub-style activity heatmap,
+strength curves with estimated 1RM, 30-day muscle split, progress-photo timeline (or the same
+timeline drawn as a muscle map), bodyweight plus ten body measurements, levels, 20 medals and
+a share card.
+
+Exercises and tools: 500+ exercises with animation and step-by-step instructions, search and
+filters by muscle/equipment/level, favourites and custom exercises, custom photo/GIF/video art
+per exercise, a training journal on a calendar, six calculators (1RM, plates, BMI, calories and
+macros, body fat, warm-up) and five home-screen widgets.
+
+## Project
+
+- Source: https://github.com/ravvdevv/kova-app
+- Issues: https://github.com/ravvdevv/kova-app/issues
+- Comparison: https://kova.app/hevy-alternative/ and https://kova.app/strong-alternative/ — how
+  KOVA compares to Hevy, Strong and seven other trackers, including where KOVA is the wrong
+  choice
+- Translations: `lib/l10n` in the repository
+- Support: https://ko-fi.com/ravvdevv
+- License: GPL-3.0 (code). Exercise illustrations from Workout Guide by Bryl Lim, based on
+  Everkinetic, CC BY-SA 4.0. Nunito under the SIL Open Font License.

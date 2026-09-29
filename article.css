@@ -1,0 +1,286 @@
+/* ═══════════════════════════════════════════════════════════
+   KOVA — article pages
+   Loads after styles.css, which owns the tokens, the reset and
+   the button/nav primitives. This file only adds prose, tables
+   and the comparison layout.
+
+   House rule, same as the landing page: strictly black and
+   white. No accent colour, no hue in any grey. Every surface,
+   border and muted tone is white at some alpha over pure
+   black. Emphasis is weight, alpha and hairlines, never hue.
+   ═══════════════════════════════════════════════════════════ */
+
+main { display: block; }
+
+/* ── article shell ─────────────────────────────────────────── */
+.art { padding: clamp(56px, 9vw, 108px) 0 clamp(72px, 10vw, 128px); position: relative; }
+
+.crumbs {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 9px;
+  font-size: 13px; font-weight: 700; color: var(--muted);
+  margin-bottom: 30px;
+}
+.crumbs a { text-decoration: none; color: var(--muted); }
+.crumbs a:hover { color: var(--fg); }
+.crumbs > span[aria-hidden] { opacity: .45; }
+.crumbs [aria-current] { color: var(--fg-2); }
+
+.art__title {
+  font-size: clamp(34px, 5.4vw, 62px);
+  letter-spacing: -.04em;
+  text-wrap: balance;
+  max-width: 20ch;
+}
+/* emphasis = hairline, not hue */
+.art__title em {
+  font-style: normal;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: .16em;
+  text-decoration-color: rgba(255, 255, 255, .3);
+}
+
+.art__standfirst {
+  margin-top: 26px;
+  max-width: 62ch;
+  font-size: clamp(17px, 1.5vw, 20px);
+  line-height: 1.58;
+  color: var(--fg-2);
+}
+.art__meta {
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  font-size: 13.5px;
+  color: var(--muted);
+  display: flex; flex-wrap: wrap; gap: 6px 16px;
+}
+.art__meta a { color: var(--fg-2); text-decoration: none; border-bottom: 1px solid var(--line-2); }
+.art__meta a:hover { color: var(--fg); border-color: var(--fg); }
+
+/* ── prose ─────────────────────────────────────────────────── */
+.prose { margin-top: clamp(46px, 6vw, 72px); }
+.prose > * + * { margin-top: 22px; }
+.prose h2 {
+  font-size: clamp(26px, 3.2vw, 36px);
+  letter-spacing: -.035em;
+  line-height: 1.06;
+  margin-top: clamp(54px, 6vw, 78px);
+  text-wrap: balance;
+}
+.prose h2:first-child { margin-top: 0; }
+.prose p, .prose li { max-width: 68ch; color: var(--fg-2); font-size: 17px; line-height: 1.66; }
+.prose a {
+  color: var(--fg);
+  text-decoration: underline;
+  text-decoration-color: var(--line-2);
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+}
+.prose a:hover { text-decoration-color: var(--fg); }
+.prose ul, .prose ol { padding-left: 22px; list-style: none; }
+.prose ul li { position: relative; }
+.prose ul li + li { margin-top: 10px; }
+.prose ul li::before {
+  content: ''; position: absolute; left: -22px; top: .62em;
+  width: 9px; height: 2px; background: var(--fg);
+}
+.prose ol { list-style: decimal; }
+.prose ol li + li { margin-top: 10px; }
+.prose strong { color: var(--fg); font-weight: 800; }
+.prose code { white-space: normal; }
+
+/* pull-out: the caveat a reader must not skim past. White rule, no colour. */
+.pullout {
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--fg);
+  border-radius: var(--r-md);
+  padding: 24px 26px;
+  background: rgba(255, 255, 255, .03);
+  margin-top: 32px;
+}
+.pullout > * + * { margin-top: 12px; }
+.pullout p { max-width: none; color: var(--fg-2); font-size: 16px; }
+.pullout > b:first-child {
+  display: block;
+  color: var(--fg);
+  font-size: 12px; font-weight: 800;
+  letter-spacing: .18em; text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.pullout em { font-style: italic; color: var(--fg); }
+
+/* ── comparison table ──────────────────────────────────────── */
+.tablewrap {
+  margin-top: 30px;
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--ink-1);
+  -webkit-overflow-scrolling: touch;
+}
+.cmp { width: 100%; border-collapse: collapse; font-size: 14.5px; min-width: 940px; }
+.cmp caption {
+  text-align: left;
+  padding: 16px 20px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--muted);
+  border-bottom: 1px solid var(--line);
+}
+.cmp th, .cmp td {
+  padding: 14px 16px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--line);
+  color: var(--fg-2);
+  font-weight: 400;
+  line-height: 1.45;
+}
+.cmp thead th {
+  position: sticky; top: 0;
+  background: var(--ink-2);
+  color: var(--muted);
+  font-size: 11.5px; font-weight: 800;
+  letter-spacing: .1em; text-transform: uppercase;
+  white-space: nowrap;
+  z-index: 2;
+}
+.cmp tbody th { color: var(--fg); font-weight: 800; white-space: nowrap; }
+.cmp tbody tr:last-child th, .cmp tbody tr:last-child td { border-bottom: 0; }
+.cmp td small { display: block; color: var(--muted); font-size: 12.5px; margin-top: 4px; }
+.cmp tbody th small { display: block; color: var(--muted); font-size: 12px; font-weight: 700; margin-top: 2px; }
+.cmp a {
+  color: var(--fg);
+  text-decoration: underline;
+  text-decoration-color: var(--line-2);
+  text-underline-offset: 3px;
+}
+.cmp a:hover { text-decoration-color: var(--fg); }
+.cmp .na { color: var(--muted); }
+
+/* KOVA's own row: brighter surface and a white left rule. No colour. */
+.cmp tr[data-kova] { background: rgba(255, 255, 255, .055); }
+.cmp tr[data-kova] th { box-shadow: inset 2px 0 0 var(--fg); padding-left: 18px; }
+.cmp tr[data-kova] td { color: var(--fg-2); }
+
+.source {
+  margin-top: 16px;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--muted);
+  max-width: 78ch;
+}
+.source a {
+  color: var(--fg-2);
+  text-decoration: underline;
+  text-decoration-color: var(--line-2);
+  text-underline-offset: 3px;
+}
+.source a:hover { color: var(--fg); text-decoration-color: var(--fg); }
+
+/* ── decision list ─────────────────────────────────────────── */
+.picks {
+  display: grid; gap: 1px;
+  margin-top: 30px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  overflow: hidden;
+}
+.pick {
+  background: var(--ink-1);
+  padding: 20px 22px;
+  display: grid;
+  grid-template-columns: minmax(0, 210px) minmax(0, 1fr);
+  gap: 6px 24px;
+  align-items: baseline;
+}
+.pick dt { font-weight: 800; font-size: 15px; color: var(--fg); }
+.pick dd { margin: 0; color: var(--fg-2); font-size: 15.5px; }
+.pick dd a {
+  color: var(--fg);
+  text-decoration: underline;
+  text-decoration-color: var(--line-2);
+  text-underline-offset: 3px;
+}
+.pick dd a:hover { text-decoration-color: var(--fg); }
+
+/* ── faq ───────────────────────────────────────────────────── */
+.art__faq { margin-top: clamp(54px, 6vw, 78px); }
+.art__faq h2 { font-size: clamp(26px, 3.2vw, 36px); letter-spacing: -.035em; margin-bottom: 24px; }
+.faqlist { display: grid; gap: 10px; }
+.faqlist details {
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  background: var(--ink-1);
+  padding: 0 20px;
+}
+.faqlist summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 17px 0;
+  font-weight: 800;
+  font-size: 16.5px;
+  color: var(--fg);
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+}
+.faqlist summary::-webkit-details-marker { display: none; }
+.faqlist summary::after {
+  content: '';
+  flex: none;
+  width: 9px; height: 9px;
+  border-right: 2px solid var(--fg);
+  border-bottom: 2px solid var(--fg);
+  transform: rotate(45deg) translateY(-3px);
+  transition: transform .2s var(--ease);
+}
+.faqlist details[open] summary::after { transform: rotate(-135deg) translateY(-2px); }
+.faqlist details p {
+  padding: 0 0 19px;
+  color: var(--fg-2);
+  font-size: 15.5px;
+  line-height: 1.62;
+  max-width: 70ch;
+}
+.faqlist details p a {
+  color: var(--fg);
+  text-decoration: underline;
+  text-decoration-color: var(--line-2);
+  text-underline-offset: 3px;
+}
+.faqlist details p a:hover { text-decoration-color: var(--fg); }
+
+/* ── cta ───────────────────────────────────────────────────── */
+.art__cta {
+  margin-top: clamp(56px, 7vw, 88px);
+  border: 1px solid var(--line-2);
+  border-radius: var(--r-lg);
+  padding: clamp(28px, 4vw, 46px);
+  background: var(--ink-1);
+  text-align: center;
+}
+.art__cta h2 { font-size: clamp(24px, 3vw, 34px); letter-spacing: -.035em; text-wrap: balance; }
+.art__cta p { margin: 16px auto 0; max-width: 54ch; color: var(--fg-2); }
+.art__cta .btn { margin-top: 26px; }
+.art__cta .sub { margin-top: 18px; font-size: 14px; color: var(--muted); }
+.art__cta .sub a {
+  color: var(--fg-2);
+  text-decoration: underline;
+  text-decoration-color: var(--line-2);
+  text-underline-offset: 3px;
+}
+.art__cta .sub a:hover { color: var(--fg); text-decoration-color: var(--fg); }
+
+@media (max-width: 640px) {
+  .pick { grid-template-columns: 1fr; }
+  .art__standfirst { font-size: 17px; }
+}
+
+@media print {
+  .crumbs, .art__cta { display: none; }
+  body { background: #fff; color: #000; }
+}

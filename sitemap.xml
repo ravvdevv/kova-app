@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Only kova.app URLs belong here. Cross-host entries are rejected as an error
+  for the whole file, so the GitHub and F-Droid pages this site links out to
+  are left to the outbound links and the page body instead.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://kova.app/</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://kova.app/assets/banner.webp</image:loc>
+      <image:title>KOVA — the offline gym log</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://kova.app/hevy-alternative/</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://kova.app/strong-alternative/</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>
