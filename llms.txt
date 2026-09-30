@@ -7,7 +7,12 @@
 
 ## Install
 
-- GitHub releases: https://github.com/ravvdevv/kova-app/releases
+- Direct download, the file most Android phones want:
+  https://github.com/ravvdevv/kova-app/releases/latest/download/KOVA-arm64-v8a.apk
+- 32-bit build for older or budget phones:
+  https://github.com/ravvdevv/kova-app/releases/latest/download/KOVA-armeabi-v7a.apk
+- Emulator build: https://github.com/ravvdevv/kova-app/releases/latest/download/KOVA-x86_64.apk
+- GitHub releases, every version with notes: https://github.com/ravvdevv/kova-app/releases
 - Obtainium: for automatic in-app updates
 - Package: `com.kova.app`
 - Platforms: Android 7.0+ ships today. iOS 15+ and Wear OS 3+ are in development, with no
