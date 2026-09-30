@@ -1,6 +1,6 @@
 /* KOVA: landing behaviour
-   Reveal on scroll, counting stats, the consistency heatmap, a rest
-   timer that actually counts, and a draggable screenshot rail.
+   Reveal on scroll, counting stats, a rest timer that actually counts,
+   and a draggable screenshot rail.
    Everything degrades to a readable static page without JS. */
 (function () {
   'use strict';
@@ -77,50 +77,6 @@
     [].slice.call(doc.querySelectorAll('[data-count]')).forEach(function (el) { co.observe(el); });
   }
 
-  /* ── consistency heatmap ──────────────────────────────── */
-  var heat = doc.getElementById('heat');
-  if (heat) {
-    var WEEKS = 15;
-    var DAYS = 7;
-    var seed = 20260929;
-    function rnd() {
-      seed = (seed * 1664525 + 1013904223) % 4294967296;
-      return seed / 4294967296;
-    }
-    var cells = WEEKS * DAYS;
-    var frag = doc.createDocumentFragment();
-    /* the last 30 days are the streak the app reports */
-    var streakFrom = cells - 30;
-    for (var i = 0; i < cells; i++) {
-      var cell = doc.createElement('i');
-      var level;
-      if (i >= streakFrom) {
-        level = 2 + Math.floor(rnd() * 3);
-      } else {
-        var r = rnd();
-        level = r > 0.62 ? 0 : r > 0.38 ? 1 : r > 0.2 ? 2 : r > 0.08 ? 3 : 4;
-      }
-      cell.setAttribute('data-l', level);
-      cell.style.setProperty('--i', i);
-      frag.appendChild(cell);
-    }
-    heat.appendChild(frag);
-
-    var lit = function () { heat.classList.add('is-live'); };
-    if (!('IntersectionObserver' in window) || reduced) {
-      lit();
-    } else {
-      var ho = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (!entry.isIntersecting) return;
-          lit();
-          ho.unobserve(entry.target);
-        });
-      }, { threshold: 0.35 });
-      ho.observe(heat);
-    }
-  }
-
   /* ── draggable screenshot rail ────────────────────────── */
   var rail = doc.getElementById('rail');
   if (rail) {
@@ -139,15 +95,29 @@
 
     function sync() {
       var max = rail.scrollWidth - rail.clientWidth;
-      var items = rail.querySelectorAll('.rail__item');
-      var per = Math.max(1, items.length);
-      var first = 0;
-      if (max > 0) first = Math.round((rail.scrollLeft / max) * (per - 1));
+      var items = [].slice.call(rail.querySelectorAll('.rail__item'));
+      var total = items.length;
       if (prev) prev.disabled = rail.scrollLeft <= 4;
       if (next) next.disabled = rail.scrollLeft >= max - 4;
-      if (count) {
-        count.textContent = (first + 1) + '\u2013' + per + ' of ' + per;
+      if (!count || !total) return;
+
+      /* first and last item that actually overlap the rail's visible box, so the
+         counter describes what is on screen rather than the whole strip */
+      var railLeft = rail.getBoundingClientRect().left;
+      var railRight = railLeft + rail.clientWidth;
+      var first = 0;
+      var last = total - 1;
+      var i;
+      for (i = 0; i < total; i++) {
+        var r = items[i].getBoundingClientRect();
+        if (r.right > railLeft + 1) { first = i; break; }
       }
+      for (i = total - 1; i >= 0; i--) {
+        var r2 = items[i].getBoundingClientRect();
+        if (r2.left < railRight - 1) { last = i; break; }
+      }
+      if (last < first) last = first;
+      count.textContent = (first + 1) + '\u2013' + (last + 1) + ' of ' + total;
     }
 
     if (prev) prev.addEventListener('click', function () { rail.scrollBy({ left: -step(), behavior: 'smooth' }); });
