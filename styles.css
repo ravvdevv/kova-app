@@ -810,3 +810,126 @@ ul { margin: 0; padding: 0; list-style: none; }
   .nav, .progress, .rail, .marquee { display: none; }
   body { background: #fff; color: #000; }
 }
+
+/* ══ GET IT ══
+   The download band. Plain language on purpose: the person reading this is
+   standing in a gym with one hand on a phone, not shopping for an APK. The
+   primary button points straight at the file via releases/latest/download, so
+   it never needs editing when the version changes. */
+
+.get {
+  position: relative;
+  padding: clamp(56px, 7vw, 96px) 0 clamp(40px, 5vw, 64px);
+  border-top: 1px solid var(--line);
+  background: var(--ink-1);
+}
+.get__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+  gap: clamp(32px, 5vw, 72px);
+  align-items: start;
+}
+.get__title {
+  font-weight: 900;
+  font-size: clamp(32px, 3.6vw, 52px);
+  line-height: 1.02;
+  letter-spacing: -.035em;
+}
+.get__title .last { color: var(--muted); }
+.get__lead {
+  margin-top: 20px;
+  max-width: 46ch;
+  font-size: clamp(16px, 1.35vw, 18px);
+  line-height: 1.55;
+  color: var(--fg-2);
+}
+.get__actions {
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px 20px;
+}
+.get__fine {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  color: var(--muted);
+}
+
+.get__steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: step;
+  display: grid;
+  gap: 2px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  overflow: hidden;
+}
+.get__steps li {
+  counter-increment: step;
+  background: var(--ink-2);
+  padding: 20px 22px 20px 58px;
+  position: relative;
+}
+.get__steps li::before {
+  content: counter(step);
+  position: absolute;
+  left: 20px; top: 20px;
+  width: 24px; height: 24px;
+  display: grid; place-items: center;
+  border: 1px solid var(--line-2);
+  border-radius: 50%;
+  font-size: 12px; font-weight: 800;
+  color: var(--fg);
+}
+.get__steps b { display: block; font-size: 16px; font-weight: 800; letter-spacing: -.01em; }
+.get__steps span { display: block; margin-top: 4px; font-size: 14.5px; line-height: 1.5; color: var(--fg-2); }
+
+.get__more { margin-top: clamp(32px, 4vw, 48px); border-top: 1px solid var(--line); }
+.get__more summary {
+  cursor: pointer; list-style: none;
+  display: flex; align-items: center; justify-content: space-between; gap: 20px;
+  padding: 20px 0;
+  font-size: 15px; font-weight: 700;
+  color: var(--fg-2);
+  transition: color .18s;
+}
+.get__more summary::-webkit-details-marker { display: none; }
+.get__more summary::after {
+  content: '';
+  flex: 0 0 auto;
+  width: 10px; height: 10px;
+  border-right: 2px solid var(--muted); border-bottom: 2px solid var(--muted);
+  transform: rotate(45deg) translateY(-2px);
+  transition: transform .22s var(--ease), border-color .22s;
+}
+.get__more[open] summary::after { transform: rotate(-135deg) translateY(-2px); border-color: var(--fg); }
+.get__more summary:hover { color: var(--fg); }
+.get__opts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 12px;
+  padding-bottom: 8px;
+}
+.get__opts a {
+  display: block;
+  padding: 16px 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  text-decoration: none;
+  font-size: 15px; font-weight: 800;
+  transition: border-color .18s, background .18s, transform .18s var(--ease);
+}
+.get__opts a:hover { border-color: var(--inv-line); background: var(--inv-dim); transform: translateY(-1px); }
+.get__opts a span { display: block; margin-top: 4px; font-size: 13.5px; font-weight: 500; color: var(--muted); }
+
+@media (max-width: 900px) {
+  .get__inner { grid-template-columns: minmax(0, 1fr); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .get__opts a:hover { transform: none; }
+}
