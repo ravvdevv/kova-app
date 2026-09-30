@@ -9,7 +9,9 @@
 
 - GitHub releases: https://github.com/ravvdevv/kova-app/releases
 - Obtainium: for automatic in-app updates
-- Package: `com.kova.app` · Android 7.0+ (supported) · iOS 15+ (in development) · Wear OS 3+ (in progress) · desktop (planned)
+- Package: `com.kova.app`
+- Platforms: Android 7.0+ ships today. iOS 15+ and Wear OS 3+ are in development, with no
+  date announced. There is no desktop build and none is planned.
 
 ## Privacy
 
@@ -17,12 +19,21 @@ KOVA ships with no analytics, no advertising SDK and no network code. Android's
 `INTERNET` permission is never requested, so there is no mechanism for training data to
 leave the phone. The only outbound action in the app is a link the user taps.
 
-Permissions requested, and why:
+Ten permissions are requested. Nine exist so the rest timer and the live session behave
+correctly, and the tenth is legacy storage on old Android. None of them can reach a network:
 
 - `POST_NOTIFICATIONS`: the rest timer counts down in the shade
-- `SCHEDULE_EXACT_ALARM`: the rest timer ends on time, not approximately
+- `POST_PROMOTED_NOTIFICATIONS`: keeps a running timer from being demoted to a silent
+  low-priority notification
+- `USE_EXACT_ALARM`: on Android 13+, wake exactly when the rest ends
+- `SCHEDULE_EXACT_ALARM`: the same guarantee on Android 12 and earlier
+- `USE_FULL_SCREEN_INTENT`: lets the alarm take over the lock screen mid-set
+- `FOREGROUND_SERVICE`: keeps the live session and its timer alive between sets
 - `VIBRATE`: the alarm buzzes instead of only sounding
 - `WAKE_LOCK`: the rest timer still fires with the screen off
+- `RECEIVE_BOOT_COMPLETED`: re-arms a running timer after a reboot
+- `WRITE_EXTERNAL_STORAGE`: Android 9 and earlier only, so ZIP backups can be written to
+  shared storage
 
 Data ownership: export to CSV or a full ZIP backup (media included) and import it back;
 import history from Hevy, Strong, Lyfta, FitNotes, openGym or any CSV; delete everything
@@ -48,14 +59,12 @@ macros, body fat, warm-up) and five home-screen widgets.
 
 ## Project
 
-- Source: https://github.com/ravvdevv/kova-app
-- Issues: https://github.com/ravvdevv/kova-app/issues
+- Releases and issues: https://github.com/ravvdevv/kova-app
 - Comparison: https://www.kova-app.site/hevy-alternative and
   https://www.kova-app.site/strong-alternative - how KOVA compares to Hevy, Strong
   and seven other trackers, including where KOVA is the wrong choice
 - Migration: https://www.kova-app.site/switch-from-hevy, exporting Hevy history and
   importing it into KOVA, what transfers and what does not
-- Translations: `lib/l10n` in the repository
 - Support: https://ko-fi.com/ravvdevv
-- License: GPL-3.0 (code). Exercise illustrations from Workout Guide by Bryl Lim, based on
-  Everkinetic, CC BY-SA 4.0. Nunito under the SIL Open Font License.
+- KOVA is closed source and free. Exercise illustrations come from Workout Guide by
+  Bryl Lim, based on Everkinetic, CC BY-SA 4.0. Nunito is under the SIL Open Font License.

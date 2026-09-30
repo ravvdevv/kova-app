@@ -11,13 +11,13 @@
 
 ---
 
-KOVA is a **free, open-source strength training app for Android** built around one idea:
+KOVA is a **free strength training app for Android** built around one idea:
 
 > **Your workout data should belong to you.**
 
 Log your training, track your progress, build routines, and understand your strength without handing your workout history to a server.
 
-KOVA is built with Flutter and released under **GPL-3.0**. Android is supported today, with iOS and Wear OS in development.
+KOVA is built with Flutter and is closed source. Android 7.0+ ships today, with iOS 15+ and Wear OS 3+ in development.
 
 ---
 
@@ -146,7 +146,7 @@ KOVA does **not request Android's `INTERNET` permission**.
 
 Your training data stays on your device. There is no built-in mechanism for workout data to be uploaded to a remote server.
 
-The permissions KOVA does request, and why they are needed, are documented in the app and on the privacy section of the project website.
+The ten permissions KOVA does request are all local, and nine of them exist so the rest timer and the live session behave correctly. The full list, with the reason for each, is on the privacy section of the project website.
 
 ---
 
@@ -189,13 +189,14 @@ The permissions KOVA does request, and why they are needed, are documented in th
 
 * iOS 15+
 * Wear OS 3+
-* Desktop
+
+There is no desktop build, and none is planned.
 
 ---
 
 ## Technical
 
-KOVA is built with **Flutter** and distributed under the **GNU General Public License v3.0**.
+KOVA is built with **Flutter**.
 
 **Package:** `com.kova.app`
 
@@ -219,4 +220,6 @@ KOVA uses **Nunito**, licensed under the [SIL Open Font License](assets/fonts/Nu
 
 ## License
 
-KOVA is free and open source software licensed under **GPL-3.0**.
+KOVA is closed source and free to use. It is not open source, and no source code is published.
+
+The bundled artwork and fonts keep their own licences, listed under Credits above.

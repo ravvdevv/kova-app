@@ -49,7 +49,6 @@
       "softwareRequirements": "Android 7.0 (Nougat) or later",
       "description": "KOVA is a free, offline strength log for Android. Pick your focus on an interactive body map, log reps and weight set by set, and read progress built from your own sets. No account, no ads, no subscription and no INTERNET permission.",
       "softwareVersion": "1.3.0",
-      "license": "https://www.gnu.org/licenses/gpl-3.0.html",
       "downloadUrl": "https://github.com/ravvdevv/kova-app/releases",
       "image": "https://www.kova-app.site/assets/banner.webp",
       "screenshot": [
@@ -87,15 +86,6 @@
         "Export to CSV or a full ZIP backup, and delete everything in one tap"
       ],
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-      "author": { "@id": "https://www.kova-app.site/#author" },
-      "isBasedOn": { "@id": "https://www.kova-app.site/#source" }
-    },
-    {
-      "@type": "SoftwareSourceCode",
-      "@id": "https://www.kova-app.site/#source",
-      "name": "KOVA",
-      "codeRepository": "https://github.com/ravvdevv/kova-app",
-      "license": "https://www.gnu.org/licenses/gpl-3.0.html",
       "author": { "@id": "https://www.kova-app.site/#author" }
     },
     {
@@ -115,7 +105,7 @@
         {
           "@type": "Question",
           "name": "Is it really free, or is the catch somewhere?",
-          "acceptedAnswer": { "@type": "Answer", "text": "There is no catch and no paid tier. No subscription, no ads, no analytics, no account. KOVA is released under GPL-3.0, so the source that ships is the source you can read. It stays free either way, and if it earns a place in your rotation and you feel like chipping in, the project's Ko-fi is at ko-fi.com/ravvdevv." }
+          "acceptedAnswer": { "@type": "Answer", "text": "There is no catch and no paid tier. No subscription, no ads, no analytics, no account. KOVA is closed source and free, and if it earns a place in your rotation and you feel like chipping in, the project's Ko-fi is at ko-fi.com/ravvdevv." }
         },
         {
           "@type": "Question",
@@ -135,7 +125,7 @@
         {
           "@type": "Question",
           "name": "Is there an iOS version?",
-          "acceptedAnswer": { "@type": "Answer", "text": "iOS 15 and later is in development. The Android build is the current one, and Wear OS and desktop are on the way." }
+          "acceptedAnswer": { "@type": "Answer", "text": "Not yet. KOVA ships for Android 7.0 and later today. An iOS 15+ build and a Wear OS 3+ build are both in development, and neither has a date yet. If you need an iPhone app right now, this one is not it." }
         },
         {
           "@type": "Question",
@@ -213,7 +203,7 @@
       </div>
 
       <p class="hero__meta reveal" data-d="4">
-        Android 7.0+ &nbsp;&middot;&nbsp; iOS 15+ in development &nbsp;&middot;&nbsp; GPL-3.0 &nbsp;&middot;&nbsp; <code>com.kova.app</code>
+        Android 7.0+ &nbsp;&middot;&nbsp; iOS 15+ and Wear OS 3+ in development &nbsp;&middot;&nbsp; <code>com.kova.app</code>
       </p>
     </div>
 
@@ -230,14 +220,14 @@
           <div class="device__frame">
             <span class="device__notch" aria-hidden="true"></span>
             <img src="assets/screens/12-profile.webp" width="400" height="860"
-                 alt="KOVA profile: levels, the twenty medals earned from real sessions, and the share card." loading="lazy" decoding="async">
+                 alt="KOVA profile: level 14, the medals earned from real sessions, lifetime totals and your photos." loading="lazy" decoding="async">
           </div>
         </div>
 
         <dl class="hero__stats">
-          <div><dt>Level</dt><dd>12</dd></div>
-          <div><dt>Medals</dt><dd>20</dd></div>
-          <div><dt>Streak</dt><dd>30 days</dd></div>
+          <div><dt>Level</dt><dd>14</dd></div>
+          <div><dt>Medals</dt><dd>18</dd></div>
+          <div><dt>Lifted</dt><dd>1307 t</dd></div>
         </dl>
       </div>
     </div>
@@ -317,23 +307,11 @@
       </ul>
     </div>
     <figure class="feature__shot reveal" data-d="2">
-      <div class="panel">
-        <div class="panel__head">
-          <span class="panel__title">Consistency</span>
-          <span class="panel__badge"><span class="dot"></span><span id="streakOut">30</span>-day streak</span>
-        </div>
-        <div class="heat" id="heat" role="img" aria-label="Activity heatmap: 30-day streak, two of six sessions this week."></div>
-        <div class="panel__foot">
-          <span>Sessions <b data-count="137">137</b></span>
-          <span>Sets <b data-count="2591">2591</b></span>
-          <span>Time <b data-count="174">174</b> h</span>
-        </div>
-      </div>
-      <div class="phone phone--sm">
+      <div class="phone">
         <img src="assets/screens/02-progress.webp" width="352" height="760" loading="lazy" decoding="async"
-             alt="Progress screen: 30-day volume card, bodyweight sparkline, consistency heatmap and lifetime totals.">
+             alt="Progress screen: 30-day volume card, bodyweight sparkline, a GitHub-style consistency heatmap, lifetime totals and a muscle map.">
       </div>
-      <figcaption>Thirty days of you, drawn from thirty days of sets.</figcaption>
+      <figcaption>Volume, weight and consistency, all read off your own sets.</figcaption>
     </figure>
   </div>
 </section>
@@ -410,8 +388,9 @@
       <p class="feature__lead reveal" data-d="2">
         KOVA ships with no analytics, no advertising SDK and no network code. Android&rsquo;s
         <code>INTERNET</code> permission is never requested, so there is no mechanism, not even
-        a disabled one, for your training to leave the phone. The only outbound action in the
-        whole app is a link you tap yourself.
+        a disabled one, for your training to leave the phone. Every permission below is local:
+        they keep the rest timer honest. The only outbound action in the whole app is a link you
+        tap yourself.
       </p>
 
       <div class="manifest reveal" data-d="3">
@@ -420,9 +399,15 @@
           <span class="manifest__file">AndroidManifest.xml</span>
         </div>
 <pre class="manifest__code"><code><span class="c-k">&#60;uses-permission</span> android:name=<span class="c-s">"android.permission.POST_NOTIFICATIONS"</span> <span class="c-k">/&#62;</span>
+<span class="c-k">&#60;uses-permission</span> android:name=<span class="c-s">"android.permission.POST_PROMOTED_NOTIFICATIONS"</span> <span class="c-k">/&#62;</span>
+<span class="c-k">&#60;uses-permission</span> android:name=<span class="c-s">"android.permission.USE_EXACT_ALARM"</span> <span class="c-k">/&#62;</span>
 <span class="c-k">&#60;uses-permission</span> android:name=<span class="c-s">"android.permission.SCHEDULE_EXACT_ALARM"</span> <span class="c-k">/&#62;</span>
+<span class="c-k">&#60;uses-permission</span> android:name=<span class="c-s">"android.permission.USE_FULL_SCREEN_INTENT"</span> <span class="c-k">/&#62;</span>
+<span class="c-k">&#60;uses-permission</span> android:name=<span class="c-s">"android.permission.FOREGROUND_SERVICE"</span> <span class="c-k">/&#62;</span>
 <span class="c-k">&#60;uses-permission</span> android:name=<span class="c-s">"android.permission.VIBRATE"</span> <span class="c-k">/&#62;</span>
 <span class="c-k">&#60;uses-permission</span> android:name=<span class="c-s">"android.permission.WAKE_LOCK"</span> <span class="c-k">/&#62;</span>
+<span class="c-k">&#60;uses-permission</span> android:name=<span class="c-s">"android.permission.RECEIVE_BOOT_COMPLETED"</span> <span class="c-k">/&#62;</span>
+<span class="c-k">&#60;uses-permission</span> android:name=<span class="c-s">"android.permission.WRITE_EXTERNAL_STORAGE"</span> android:maxSdkVersion=<span class="c-s">"28"</span> <span class="c-k">/&#62;</span>
 
 <span class="c-c">&lt;!-- android.permission.INTERNET: never requested --&gt;</span></code></pre>
       </div>
@@ -436,15 +421,23 @@
         </thead>
         <tbody>
           <tr><th scope="row"><code>POST_NOTIFICATIONS</code></th><td>The rest timer counts down in the shade</td></tr>
-          <tr><th scope="row"><code>SCHEDULE_EXACT_ALARM</code></th><td>So the rest timer ends on time, not approximately</td></tr>
+          <tr><th scope="row"><code>POST_PROMOTED_NOTIFICATIONS</code></th><td>So the running timer is not demoted to a silent, low-priority notification</td></tr>
+          <tr><th scope="row"><code>USE_EXACT_ALARM</code></th><td>Android 13 and later: wake exactly when the rest ends, not when it feels like it</td></tr>
+          <tr><th scope="row"><code>SCHEDULE_EXACT_ALARM</code></th><td>The same guarantee on Android 12 and earlier</td></tr>
+          <tr><th scope="row"><code>USE_FULL_SCREEN_INTENT</code></th><td>Lets the alarm take over the lock screen, since you are mid-set and not watching the screen</td></tr>
+          <tr><th scope="row"><code>FOREGROUND_SERVICE</code></th><td>Keeps the live session and its timer alive while you are between sets</td></tr>
           <tr><th scope="row"><code>VIBRATE</code></th><td>So the alarm buzzes instead of only sounding</td></tr>
           <tr><th scope="row"><code>WAKE_LOCK</code></th><td>So it still fires with the screen off</td></tr>
+          <tr><th scope="row"><code>RECEIVE_BOOT_COMPLETED</code></th><td>Re-arms a running timer after a reboot instead of losing it</td></tr>
+          <tr><th scope="row"><code>WRITE_EXTERNAL_STORAGE</code></th><td>Android 9 and earlier only, so ZIP backups can be written to shared storage</td></tr>
           <tr class="perms__none"><th scope="row"><code>INTERNET</code></th><td><s>Not requested. There is no code that could use it.</s></td></tr>
         </tbody>
       </table>
       <p class="privacy__note">
-        Photos and videos live in the app&rsquo;s own storage. Nothing is uploaded, because there
-        is nowhere to upload it to.
+        That is the complete list, taken from the shipped 1.3.0 manifest rather than from a
+        summary. Nine of the ten exist for the rest timer and the live session, and the tenth
+        is legacy storage for older Android. Nothing here can reach a network: photos and
+        videos live in the app&rsquo;s own storage, and there is nowhere to upload them to.
       </p>
     </div>
   </div>
@@ -578,9 +571,8 @@
       <details>
         <summary>Is it really free, or is the catch somewhere?</summary>
         <p>There is no catch and no paid tier. No subscription, no ads, no analytics, no account.
-        KOVA is released under GPL-3.0, so the source that ships is the source you can read. It
-        stays free either way &mdash; and if it earns a place in your rotation and you feel like
-        chipping in, the project&rsquo;s
+        KOVA is free and always will be, and if it earns a place in your rotation and you feel
+        like chipping in, the project&rsquo;s
         <a href="https://ko-fi.com/ravvdevv" target="_blank" rel="noopener noreferrer">Ko-fi is
         open</a>.</p>
       </details>
@@ -605,8 +597,9 @@
       </details>
       <details>
         <summary>Is there an iOS version?</summary>
-        <p>iOS 15+ is in development. The Android build is the current one, and Wear OS and
-        desktop are on the way.</p>
+        <p>Not yet. KOVA ships for Android 7.0 and later today. An iOS 15+ build and a Wear OS
+        3+ build are both in development, and neither has a date yet. If you need an iPhone app
+        right now, this one is not it.</p>
       </details>
       <details>
         <summary>Can I really delete everything?</summary>
@@ -654,7 +647,7 @@
   </div>
 
   <div class="shell foot__legal">
-    <p><code>com.kova.app</code> &middot; GPL-3.0 &middot; exercise art CC BY-SA 4.0, Workout Guide by Bryl Lim &middot; Nunito under the SIL OFL</p>
+    <p><code>com.kova.app</code> &middot; exercise art CC BY-SA 4.0, Workout Guide by Bryl Lim &middot; Nunito under the SIL OFL</p>
   </div>
 </footer>
 
