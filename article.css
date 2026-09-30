@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════
-   KOVA — article pages
+   KOVA: article pages
    Loads after styles.css, which owns the tokens, the reset and
    the button/nav primitives. This file only adds prose, tables
    and the comparison layout.

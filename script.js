@@ -1,4 +1,4 @@
-/* KOVA — landing behaviour
+/* KOVA: landing behaviour
    Reveal on scroll, counting stats, the consistency heatmap, a rest
    timer that actually counts, and a draggable screenshot rail.
    Everything degrades to a readable static page without JS. */

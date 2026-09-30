@@ -1,7 +1,7 @@
 # KOVA
 
 <p align="center">
-  <img src="assets/banner.webp" alt="KOVA — Free forever. Fully offline. Your data is yours." width="720">
+  <img src="assets/banner.webp" alt="KOVA: Free forever. Fully offline. Your data is yours." width="720">
 </p>
 
 <p align="center">
