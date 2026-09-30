@@ -1,0 +1,44 @@
+{
+  "_comment": [
+    "Ground truth for numbers the site states as fact. Every value here was read",
+    "off a real screenshot in assets/screens/, and the `source` field names the file",
+    "it came from. The checker in tests/check-claims.mjs fails if the site states a",
+    "different value, which is how the Level 12 / Medals 20 / fake heatmap round of",
+    "bugs got shipped in the first place: the markup looked fine, it just did not",
+    "match the phone sitting next to it.",
+    "",
+    "When you re-capture a screenshot, update the value here in the same commit. If",
+    "the site and the screenshot disagree, the screenshot is the truth.",
+    "",
+    "Only claims that a screenshot can actually prove belong in this file. Marketing",
+    "copy, feature counts and roadmap statements are deliberately excluded, because",
+    "pinning those to a screenshot would be wrong."
+  ],
+  "screenshots": {
+    "12-profile.webp": {
+      "level": 14,
+      "medals_earned": 18,
+      "lifted_tonnes": 1307,
+      "workouts": 137,
+      "sets": 2591
+    },
+    "02-progress.webp": {
+      "volume_tonnes_30d": 284.1,
+      "weight_kg": 68.5,
+      "streak_days": 30,
+      "_known_app_bug": "The label '2 of 6 this week' contradicts the grid printed directly above it. Pixel analysis of this file shows all 84 cells lit, including all 7 in the final week column, so the app is miscounting. This lives in the Flutter UI, not on this site, and cannot be fixed from the landing repo. The site states no competing number. Fix it in the app and re-capture; see the README note."
+    }
+  },
+  "hero_stats": [
+    { "label": "Level", "must_equal": "14", "proves": "12-profile.webp level" },
+    { "label": "Medals", "must_equal": "18", "proves": "12-profile.webp medals earned" },
+    { "label": "Lifted", "must_contain": "1307", "proves": "12-profile.webp lifted" }
+  ],
+  "not_pinned": {
+    "_comment": "Claims with no screenshot behind them. Listed so a reviewer knows they were considered and deliberately left alone.",
+    "medal_total_available": "20, the number of medals the app can award. The profile has earned 18, which is what the hero shows. Confirmed by the maintainer.",
+    "exercises": "500+, not derivable from a screenshot.",
+    "languages": "16, not derivable from a screenshot.",
+    "network_calls": "0, a code-level fact, not a screenshot fact."
+  }
+}

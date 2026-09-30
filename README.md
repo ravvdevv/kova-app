@@ -194,6 +194,37 @@ There is no desktop build, and none is planned.
 
 ---
 
+## Working on this site
+
+```
+node dev-server.cjs          # http://localhost:8080
+node tests/check-claims.cjs  # verify the site's numbers against the screenshots
+```
+
+Both run on a bare Node install. No dependencies, no build step.
+
+`dev-server.cjs` exists because Vercel resolves `/hevy-alternative` to
+`hevy-alternative.html` (`cleanUrls` in `vercel.json`) and a plain static server
+does not, which makes every internal link 404 in local preview while working
+fine in production.
+
+`tests/check-claims.cjs` fails when the site states a number the screenshots
+contradict. Every number that shipped wrong on this page looked correct in the
+markup and was only wrong relative to the phone image printed beside it, so a
+reviewer reading HTML could not see it. The values it checks live in
+`tests/facts.json` with the screenshot each came from; update both when you
+re-capture a screen.
+
+### Known app bug
+
+`assets/screens/02-progress.webp` shows the label **"2 of 6 this week"** next to a
+heatmap where all 84 cells are lit, including all 7 in the final week. The app is
+miscounting the week. It is baked into the Flutter UI, so it cannot be fixed from
+this repository, and the site itself states no competing figure. Fix it in the app
+and re-capture the screenshot.
+
+---
+
 ## Technical
 
 KOVA is built with **Flutter**.
