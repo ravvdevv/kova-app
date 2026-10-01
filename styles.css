@@ -7,24 +7,26 @@
    Nunito, because the app is Nunito.
    ═══════════════════════════════════════════════════════════ */
 
+/* Latin-subset woff2. The full Nunito TTFs are 129 KB per weight and all four
+   land on the critical path; these are 10 KB each. */
 @font-face {
   font-family: 'Nunito';
-  src: url('assets/fonts/Nunito-Regular.ttf') format('truetype');
+  src: url('assets/fonts/subset/Nunito-Regular.woff2') format('woff2');
   font-weight: 400; font-style: normal; font-display: swap;
 }
 @font-face {
   font-family: 'Nunito';
-  src: url('assets/fonts/Nunito-SemiBold.ttf') format('truetype');
+  src: url('assets/fonts/subset/Nunito-SemiBold.woff2') format('woff2');
   font-weight: 600; font-style: normal; font-display: swap;
 }
 @font-face {
   font-family: 'Nunito';
-  src: url('assets/fonts/Nunito-ExtraBold.ttf') format('truetype');
+  src: url('assets/fonts/subset/Nunito-ExtraBold.woff2') format('woff2');
   font-weight: 800; font-style: normal; font-display: swap;
 }
 @font-face {
   font-family: 'Nunito';
-  src: url('assets/fonts/Nunito-Black.ttf') format('truetype');
+  src: url('assets/fonts/subset/Nunito-Black.woff2') format('woff2');
   font-weight: 900; font-style: normal; font-display: swap;
 }
 
@@ -233,7 +235,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 .pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 26px; }
 .pills li {
-  font-size: 13px; font-weight: 700; letter-spacing: .04em;
+  font-size: 13px; font-weight: 800; letter-spacing: .04em;
   text-transform: uppercase;
   color: var(--fg-2);
   border: 1px solid var(--line-2);
@@ -459,7 +461,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
 .chips span {
-  font-size: 13px; font-weight: 700;
+  font-size: 13px; font-weight: 800;
   border: 1px solid var(--line-2); border-radius: 999px;
   padding: 5px 13px; color: var(--fg-2);
   background: rgba(255, 255, 255, .025);
@@ -550,7 +552,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .gallery .eyebrow { margin-bottom: 22px; }
 .gallery__nav { display: flex; align-items: center; gap: 18px; }
 .gallery__hint {
-  font-size: 13px; font-weight: 700; letter-spacing: .04em;
+  font-size: 13px; font-weight: 800; letter-spacing: .04em;
   color: var(--muted); font-variant-numeric: tabular-nums;
 }
 .gallery__btns { display: flex; gap: 8px; }
@@ -595,7 +597,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .rail__item:hover img { transform: translateY(-5px); border-color: var(--line-2); }
 .rail__item figcaption {
   margin-top: 12px; text-align: center;
-  font-size: 13px; font-weight: 700; color: var(--muted);
+  font-size: 13px; font-weight: 800; color: var(--muted);
   letter-spacing: .02em;
 }
 
@@ -628,7 +630,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .listing__row li:hover img { transform: translateY(-5px); border-color: var(--line-2); }
 .listing__row span {
   display: block; margin-top: 11px; text-align: center;
-  font-size: 12.5px; font-weight: 700; letter-spacing: .03em; color: var(--muted);
+  font-size: 12.5px; font-weight: 800; letter-spacing: .03em; color: var(--muted);
 }
 
 /* ── get ─────────────────────────────────────────────────── */
@@ -704,7 +706,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   padding: 9px 15px;
   border: 1px solid var(--line);
   border-radius: 999px;
-  font-size: 14.5px; font-weight: 700;
+  font-size: 14.5px; font-weight: 800;
   color: var(--fg-2);
   text-decoration: none;
   transition: color .18s, border-color .18s, background .18s;
