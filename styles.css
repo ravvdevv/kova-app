@@ -387,12 +387,16 @@ ul { margin: 0; padding: 0; list-style: none; }
   width: max-content;
   animation: slide 44s linear infinite;
 }
+/* The outlined look needs a real fill behind the stroke. `color: transparent`
+   resolves to #525252 on #000 for axe (2.69:1, under the 3:1 that large text
+   requires) and renders as invisible text in Firefox, which has no text-stroke.
+   The fill carries the contrast; the stroke stays as the edge highlight. */
 .marquee__track span {
   font-size: clamp(20px, 2.6vw, 30px);
   font-weight: 900; letter-spacing: -.02em;
   text-transform: uppercase;
-  color: transparent;
-  -webkit-text-stroke: 1px rgba(255, 255, 255, .32);
+  color: rgba(255, 255, 255, .45);
+  -webkit-text-stroke: 1px rgba(255, 255, 255, .8);
 }
 .marquee__track i { color: var(--fg); font-style: normal; font-size: 14px; }
 @keyframes slide { to { transform: translateX(-50%); } }

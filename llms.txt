@@ -7,12 +7,10 @@
 
 ## Install
 
-- Direct download, the file most Android phones want:
-  https://github.com/ravvdevv/kova-app/releases/latest/download/KOVA-arm64-v8a.apk
-- 32-bit build for older or budget phones:
-  https://github.com/ravvdevv/kova-app/releases/latest/download/KOVA-armeabi-v7a.apk
-- Emulator build: https://github.com/ravvdevv/kova-app/releases/latest/download/KOVA-x86_64.apk
-- GitHub releases, every version with notes: https://github.com/ravvdevv/kova-app/releases
+- [Direct download, the file most Android phones want](https://github.com/ravvdevv/kova-app/releases/latest/download/KOVA-arm64-v8a.apk)
+- [32-bit build for older or budget phones](https://github.com/ravvdevv/kova-app/releases/latest/download/KOVA-armeabi-v7a.apk)
+- [Emulator build](https://github.com/ravvdevv/kova-app/releases/latest/download/KOVA-x86_64.apk)
+- [GitHub releases, every version with notes](https://github.com/ravvdevv/kova-app/releases)
 - Obtainium: for automatic in-app updates
 - Package: `com.kova.app`
 - Platforms: Android 7.0+ ships today. iOS 15+ and Wear OS 3+ are in development, with no
@@ -64,12 +62,12 @@ macros, body fat, warm-up) and five home-screen widgets.
 
 ## Project
 
-- Releases and issues: https://github.com/ravvdevv/kova-app
-- Comparison: https://www.kova-app.site/hevy-alternative and
-  https://www.kova-app.site/strong-alternative - how KOVA compares to Hevy, Strong
-  and seven other trackers, including where KOVA is the wrong choice
-- Migration: https://www.kova-app.site/switch-from-hevy, exporting Hevy history and
-  importing it into KOVA, what transfers and what does not
-- Support: https://ko-fi.com/ravvdevv
+- [Releases and issues](https://github.com/ravvdevv/kova-app)
+- [KOVA vs Hevy](https://www.kova-app.site/hevy-alternative) and
+  [KOVA vs Strong](https://www.kova-app.site/strong-alternative) - how KOVA compares
+  to Hevy, Strong and seven other trackers, including where KOVA is the wrong choice
+- [Switch from Hevy](https://www.kova-app.site/switch-from-hevy) - exporting Hevy
+  history and importing it into KOVA, what transfers and what does not
+- [Support](https://ko-fi.com/ravvdevv)
 - KOVA is closed source and free. Exercise illustrations come from Workout Guide by
   Bryl Lim, based on Everkinetic, CC BY-SA 4.0. Nunito is under the SIL Open Font License.
