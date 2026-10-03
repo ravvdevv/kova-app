@@ -249,8 +249,4 @@ KOVA uses **Nunito**, licensed under the [SIL Open Font License](assets/fonts/Nu
 
 ---
 
-## License
-
-KOVA is closed source and free to use. It is not open source, and no source code is published.
-
 The bundled artwork and fonts keep their own licences, listed under Credits above.
